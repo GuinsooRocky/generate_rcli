@@ -1,0 +1,29 @@
+{
+  "name": "generate-rcli",
+  "version": "0.2.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "rcli": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git地址"
+  },
+  "keywords": [],
+  "author": "niepan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GuinsooRocky",
+    "email": "601778288@qq.com"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.19.0",
+    "cross-spawn": "^6.0.5",
+    "fs-extra": "^7.0.1"
+  }
+}

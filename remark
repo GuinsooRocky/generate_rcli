@@ -1,0 +1,34 @@
+
+用法
+Usage: rcli [command] [options]
+
+Commands:
+  new <appName>
+  g <componentName>
+
+`new` command options:
+  -n, --use-npm                    Whether to use npm to download dependencies
+
+`g` command options:
+  -c, --component <componentName>  The name of the component
+  --no-folder                      Whether the component have not it's own folder
+  -p, --pure-component             Whether the component is a extend from PureComponent
+  -s, --stateless                  Whether the component is a stateless component
+
+使用 create-react-app 来创建一个应用s
+rcli new PROJECT-NAME
+cd PROJECT-NAME
+yarn start
+
+生成纯组件（继承自 PureComponent，以提高性能）
+rcli g -c MyNewComponent -p
+生成类组件（有状态组件）
+rcli g -c MyNewComponent
+等于：
+rcli g -c ./MyNewComponent
+生成函数组件（无状态组件）
+rcli g -c MyNewComponent -s
+
+生成组件不在文件夹内（也不包含 css 文件和 index.js 文件）
+# 默认生成的组件都会都包含在文件夹中的，若不想生成的组件被文件夹包含，则加上 --no-folder 选项
+rcli g -c MyNewComponent --no-folder
