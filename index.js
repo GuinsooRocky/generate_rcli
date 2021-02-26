@@ -80,7 +80,7 @@ function createComponent (
     const indexJs = getIndexJs(componentName);
     const less = '';
     fs.writeFileSync(path.join(dirPath, `config.js`), indexJs);
-    fs.writeFileSync(path.join(dirPath, `${componentName}.less`), less);
+    fs.writeFileSync(path.join(dirPath, `style.less`), less);
   }
   let component;
   // 无状态组件
@@ -109,7 +109,57 @@ function createComponent (
  * @param {boolean} hasFolder 组件是否在文件夹中（在文件夹中的话，就会自动加载 less 文件）
  */
 function getClassComponent(componentName, extendFrom, hasFolder) {
-  return '省略...';
+  return `import React, {Fragment} from 'react';
+  import ReactDOM from 'react-dom';
+  import zhCN from 'antd/lib/locale-provider/zh_CN';
+  // import commerServer from './server';
+  import Navbar from 'components/navbar';
+  import moment from 'moment';
+  import 'moment/locale/zh-cn';
+  import './style.less';
+  moment.locale('zh-cn');
+  
+  class ${componentName} extends React.${extendFrom ? 'Component' : 'PureComponent'} {
+      constructor(props) {
+          super(props);
+          this.state = {
+              loading: false
+          };
+      }
+  
+      componentDidMount() {
+          this.query()
+      }
+      // 获取数据
+      query = async ()=>{
+          this.setState({loading: true })
+          // const param = {  };
+          // const res = await commerServer.nnn({...param});
+          this.setState({
+              loading: false 
+          })
+      }
+
+      render() {
+          let {  } = this.state;
+  
+          return (
+              <LocaleProvider locale={zhCN}>
+                  <div className='combination_list'>
+                      <Navbar>组合销售</Navbar>
+                      <div className='border_layer'>
+                      </div>
+                  </div>
+              </LocaleProvider>
+          );
+      }
+  }
+  
+  const pageContent = document.getElementById('J_Page');
+  if (pageContent) {
+      ReactDOM.render(<${componentName} />, pageContent);
+  }
+  `;
 }
  
 /**
