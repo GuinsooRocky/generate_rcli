@@ -11,13 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git地址"
+    "url": "https://github.com/GuinsooRocky/generate_rcli"
   },
   "keywords": [],
   "author": "niepan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/GuinsooRocky",
+    "url": "https://github.com/GuinsooRocky/generate_rcli/issues",
     "email": "601778288@qq.com"
   },
   "dependencies": {
